@@ -26,6 +26,7 @@ shinyUI(
                gibbs
     ),
     ##-- Footer ----
-    div(class = "footer", includeHTML("html/footer.html"))
+    div(class = "footer", includeHTML("html/footer.html")),
+    div(includeHTML("html/google_analytics.html"))
   )
 )
