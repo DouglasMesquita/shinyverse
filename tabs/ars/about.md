@@ -38,6 +38,9 @@ Now you can set the iteration number with the new button on top of the panel to 
 
 Go ahead!
 
+# <h1 style = 'color:black'><label class='control-label'>Source Code</label></h1>
+Source code: [GitHub](https://github.com/DouglasMesquita/shinyverse/tree/master/tabs/ars)
+
 # <h1 style = 'color:black'><label class='control-label'>Acknowledgement</label></h1>
 
 I acknowledge to [Larissa Sayuri](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K8243295P6) and [Luís Gustavo](http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4323569E0) for the considerations and help in this work.

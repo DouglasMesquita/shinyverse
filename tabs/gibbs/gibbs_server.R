@@ -1,7 +1,7 @@
 ##-- Observe runButton to update other buttons
 observeEvent(input$gibbs_run, {
   updatePrettyToggle(session = session, inputId = "gibbs_show_true", value = FALSE)
-  updateNumericInput(session = session, inputId = "gibbs_moment", value = character(0))
+  x_user <<- NULL
   updatePrettyToggle(session = session, inputId = "gibbs_show_gibbs", value = FALSE)
   
   hide(id = "gibbs_show_gibbs")
@@ -115,7 +115,7 @@ gibbs_graph <-  eventReactive(c(input$gibbs_show_true, input$gibbs_show_gibbs),{
     x_true <- gibbs$m
     
     if(gibbs_user_point){
-      x_user <- isolate(input$gibbs_moment_click$x)
+      x_user <- x_user ## Global value
       serie <- serie + geom_vline(xintercept = x_user, 
                                   col = gibbs_user_col, size = 1.5)
     }
@@ -142,8 +142,7 @@ observeEvent(input$gibbs_moment_click,{
   if(gibbs_update){
     gibbs_user_point <<- TRUE
     
-    x_user <- round(input$gibbs_moment_click$x)
-    updateNumericInput(session = session, inputId = "gibbs_moment", value = x_user)
+    x_user <<- round(input$gibbs_moment_click$x)
     x_gibbs <- gibbs_graph()$x_gibbs
     x_true <- gibbs_graph()$x_true
     updatePrettyToggle(session = session, inputId = "gibbs_show_gibbs", value = TRUE)
