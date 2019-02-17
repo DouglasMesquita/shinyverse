@@ -27,9 +27,7 @@ shinyUI(
                gibbs_help,
                ##-- normality tests ----
                norm,
-               norm_help,
-               ##-- GLM ----
-               glm
+               norm_help
     ),
     ##-- Footer ----
     div(class = "footer", includeHTML("html/footer.html")),

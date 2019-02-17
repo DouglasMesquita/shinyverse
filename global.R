@@ -56,4 +56,3 @@ lapply(uis[uis_order], source)
 
 ##-- + globals ----
 source("tabs/gibbs/gibbs_global.R")
-source("tabs/glm/glm_global.R")
