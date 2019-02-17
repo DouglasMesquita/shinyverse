@@ -1,3 +1,13 @@
+##-- Help page ----
+observeEvent(c(input$gibbs_help, input$gibbs_help_ini),{
+  updateTabsetPanel(session = session, inputId = "apps", selected = "gibbs_help")
+}, ignoreInit = TRUE)
+
+##-- Help page ----
+observeEvent(input$gibbs_go_app,{
+  updateTabsetPanel(session = session, inputId = "apps", selected = "gibbs")
+})
+
 ##-- Observe runButton to update other buttons
 observeEvent(input$gibbs_run, {
   updatePrettyToggle(session = session, inputId = "gibbs_show_true", value = FALSE)

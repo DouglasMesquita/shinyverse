@@ -1,17 +1,15 @@
-ars <- tabPanel(id = "teste",
-                title = "Adaptive Rejection Sampling (ARS)",
+ars <- tabPanel(title = "Adaptive Rejection Sampling (ARS)",
                 value = "ars", 
-                br(),
+                HTML("<h1><center>Adaptive Rejection Sampling (ARS)</center></h1>"),
                 actionBttn(inputId = "ars_go_home", label = "Back", icon = icon("chevron-left"), 
                            style = "material-flat", color = "primary", size = "sm"),
-                br(),
                 column(width = 12, 
                        column(width = 10,
                               
                               absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE, 
                                             draggable = TRUE, 
                                             style = "z-index: 1000",
-                                            top = 150, left = 60, right = "auto", bottom = "auto",
+                                            top = 150, left = 120, right = "auto", bottom = "auto",
                                             width = 400, height = "auto",
                                             
                                             HTML('<button data-toggle="collapse" data-target = "#ars_absolute_panel"  
@@ -180,7 +178,11 @@ ars <- tabPanel(id = "teste",
                                                      div(style = "float: right; margin-top:20px", 
                                                          actionBttn(inputId = "ars_run_button", label = "Run!", icon = icon("retweet"), 
                                                                     style = "material-flat", color = "danger", size = "sm")
-                                                         )
+                                                     ),
+                                                     div(style = "float: left; margin-top:20px", 
+                                                         actionBttn(inputId = "ars_help", label = "Help page", icon = icon("question"), 
+                                                                    style = "material-flat", color = "danger", size = "sm")
+                                                     )
                                             )
                               )
                        )
@@ -194,7 +196,7 @@ ars <- tabPanel(id = "teste",
                                            label_blog(text = "Use <i class = 'fa fa-gear'></i> to set some parameters and click Run!", 
                                                       color = "#fff", size = "h1", center = TRUE),
                                            div(style = "position: absolute; right:50px; bottom:50px", 
-                                               actionBttn(inputId = "ars_help", label = "Help page", icon = icon("question"), 
+                                               actionBttn(inputId = "ars_help_ini", label = "Help page", icon = icon("question"), 
                                                           style = "material-flat", color = "danger", size = "sm")
                                            )
                                   )
@@ -211,30 +213,21 @@ ars <- tabPanel(id = "teste",
                                                       size = "h4", color = "#fff", center = TRUE),
                                            withSpinner(plotOutput("ars_log"), type = 5, color = "#ffffff")
                                   )
-                           )
-                         ),
-                         conditionalPanel(
-                           condition = "input.ars_run_button > 0",
+                           ),
                            column(width = 4,
                                   box_blog(cor = "#6b7494", height = "125px", width = "80%", 
                                            label_blog(text = "Histogram", 
                                                       size = "h4", color = "#fff", center = TRUE),
                                            withSpinner(plotOutput("ars_hist"), type = 5, color = "#ffffff")
                                   )
-                           )
-                         ),
-                         conditionalPanel(
-                           condition = "input.ars_run_button > 0",
+                           ),
                            column(width = 4,
                                   box_blog(cor = "#6b7494", height = "125px", width = "80%", 
                                            label_blog(text = "Function", 
                                                       size = "h4", color = "#fff", center = TRUE),
                                            withSpinner(plotOutput("ars_fun"), type = 5, color = "#ffffff")
                                   )
-                           )
-                         ),
-                         conditionalPanel(
-                           condition = "input.ars_run_button > 0",
+                           ),
                            column(width = 8, offset = 2,
                                   box_blog(cor = "#6b7494", height = "125px", width = "100%", 
                                            label_blog(text = "Aceptance Rate", 

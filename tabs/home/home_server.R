@@ -1,5 +1,5 @@
 ##-- Home ----
-observeEvent(c(input$ars_go_home, input$gibbs_go_home),{
+observeEvent(c(input$ars_go_home, input$gibbs_go_home, input$norm_go_home, input$glm_go_home),{
   updateTabsetPanel(session = session, inputId = "apps", selected = "home")
 })
 
@@ -17,4 +17,20 @@ observeEvent(input$app_gibbs,{
 })
 observeEvent(input$app_gibbs_text,{
   updateTabsetPanel(session = session, inputId = "apps", selected = "gibbs")
+})
+
+##-- Normality ----
+observeEvent(input$app_norm,{
+  updateTabsetPanel(session = session, inputId = "apps", selected = "norm")
+})
+observeEvent(input$app_norm_text,{
+  updateTabsetPanel(session = session, inputId = "apps", selected = "norm")
+})
+
+##-- GLM ----
+observeEvent(input$app_glm,{
+  updateTabsetPanel(session = session, inputId = "apps", selected = "glm")
+})
+observeEvent(input$app_glm_text,{
+  updateTabsetPanel(session = session, inputId = "apps", selected = "glm")
 })

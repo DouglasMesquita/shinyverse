@@ -1,7 +1,7 @@
 ##-- Help page ----
-observeEvent(input$ars_help,{
+observeEvent(c(input$ars_help, input$ars_help_ini),{
   updateTabsetPanel(session = session, inputId = "apps", selected = "ars_help")
-})
+}, ignoreInit = TRUE)
 
 ##-- Help page ----
 observeEvent(input$ars_go_app,{

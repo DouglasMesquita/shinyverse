@@ -10,15 +10,15 @@ home <- tabPanel(title = "Home",
                         column(width = 2,
                                app_img(src = "img/banners/gibbs.png", link = "app_gibbs", width = "100%"),
                                app_title(text = "Poisson with change point", html_size = "h4", link = "app_gibbs_text")
+                        ),
+                        column(width = 2,
+                               app_img(src = "img/banners/normality.png", link = "app_norm", width = "100%"),
+                               app_title(text = "Normality tests", html_size = "h4", link = "app_norm_text")
+                        ),
+                        column(width = 2,
+                               app_img(src = "img/banners/glm.png", link = "app_glm", width = "100%"),
+                               app_title(text = "GLM model", html_size = "h4", link = "app_glm_text")
                         )
-                        # column(width = 2,
-                        #        app_img(src = "img/banners/exams.png", link = "www.google.com", width = "100%"),
-                        #        app_title(text = "Medical exams", html_size = "h4", link = "www.google.com")
-                        # ),
-                        # column(width = 2,
-                        #        app_img(src = "img/banners/medical_report.png", link = "www.google.com", width = "100%"),
-                        #        app_title(text = "Automatic Medical Reports", html_size = "h4", link = "www.google.com")
-                        # )
                  ),
                  column(width = 10, offset = 1,
                         br(), br(),
