@@ -58,3 +58,72 @@ label_blog <- function(text, size, color = "white", center = T){
   HTML(text)
 }
 
+input_app <- function(color, img, height = NULL, width = NULL, ...){
+  
+  if(is.null(height)){
+    height <- 200
+    height_char <- "200px"
+  } else{
+    if(is.character(height)){
+      height_char <- "200px"
+      height <- as.numeric(gsub("([0-9]+).*$", "\\1", height))
+    } else{
+      height_char <- paste0(height, "px")
+    }
+  }
+  
+  img_html <- HTML(paste0('<div class = "box-img" style = "background-color:', color, '; height:', height*0.75, 'px; width: 100%;"> 
+                              <img class = img-box src="img/', img, '" height = ', height*0.35, 'px>
+                           </div>'))
+  
+  box_html <- div(class = "box_app",
+                  style = paste('border:1px solid', color, ';
+                                 background-color: ', color, ';
+                                 height: ', height_char, ';
+                                 width: ', width, ';
+                                 color: #FFFFFF'),
+                  column(width = 3, align = "center", height = "90%",
+                         img_html
+                  ),
+                  column(width = 7, offset = 1, align = "center", height = "90%",
+                         ...
+                  )
+  )
+  
+  box_html
+}
+
+box_outputs <- function(cor, height = NULL, width = NULL, ...){
+  
+  if(is.null(height)){
+    height <- '200px'
+  }
+  
+  if(is.null(width)){
+    div(class = "box_blog", 
+        style = paste('border:1px solid', cor, '; 
+                 background-color: ', cor, ';
+                 height: ', height, ';
+                 color: #FFFFFF'),
+        ...)
+    
+  } else{
+    div(class = "box_blog", 
+        style = paste('border:1px solid', cor, '; 
+                 background-color: ', cor, ';
+                 height: ', height, ';
+                 width: ', width, ';
+                 color: #FFFFFF'),
+        ...)
+  }
+}
+
+label_outputs <- function(text, size, color = "white", center = T){
+  if(center){
+    text <- sprintf("<center><%s style = 'color:%s'><label class='control-label'>%s</label></%s></center>", size, color, text, size)
+  } else{
+    text <- sprintf("<%s style = 'color:%s'><label class='control-label'>%s</label></%s>", size, color, text, size)  
+  }
+  
+  HTML(text)
+}

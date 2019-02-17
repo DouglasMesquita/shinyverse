@@ -23,7 +23,13 @@ shinyUI(
                ars,
                ars_help,
                ##-- gibbs ----
-               gibbs
+               gibbs,
+               gibbs_help,
+               ##-- normality tests ----
+               norm,
+               norm_help,
+               ##-- GLM ----
+               glm
     ),
     ##-- Footer ----
     div(class = "footer", includeHTML("html/footer.html")),

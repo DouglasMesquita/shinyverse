@@ -5,4 +5,6 @@ shinyServer(function(input, output, session){
   source("tabs/ars/ars_server.R", local = TRUE)
   ##-- gibbs ----
   source("tabs/gibbs/gibbs_server.R", local = TRUE)
+  ##-- gibbs ----
+  source("tabs/normality/norm_server.R", local = TRUE)
 })

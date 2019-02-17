@@ -12,10 +12,14 @@ library(shinycssloaders)
 ##-- + Plots ----
 library(ggplot2)
 library(ggthemes)
+##-- + Table ----
+library(DT)
 ##-- + md Files ----
 library(markdown)
-##-- + Others ----
+##-- + ARS ----
 library(mosaic) #devtools::install_version(package = "mosaic", version = "0.10.0")
+##-- + normality ----
+library(nortest)
 
 ##-- Sources ----
 source("R/utils.R")
@@ -36,6 +40,13 @@ gg_tema <- theme_stata() +
         panel.background = element_rect(fill = col_back),
         plot.background = element_rect(fill = col_back))
 
+options_DT <- list(paging = FALSE, ordering = F, searching = F, bInfo = FALSE,
+                   columnDefs = list(list(className = 'dt-center')),
+                   initComplete = DT::JS(
+                     "function(settings, json) {",
+                     "$(this.api().table().header()).css({'background-color': '#aaa', 'color': '#000'});",
+                     "}"))
+
 ##-- + uis e servers ----
 uis <- list.files(path = "tabs", pattern = "ui", recursive = T, full.names = T)
 uis_order <- str_count(string = uis, pattern = "/") %>% 
@@ -45,3 +56,4 @@ lapply(uis[uis_order], source)
 
 ##-- + globals ----
 source("tabs/gibbs/gibbs_global.R")
+source("tabs/glm/glm_global.R")
